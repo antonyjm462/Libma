@@ -1,0 +1,16 @@
+student/login  uid/password
+student/my-books uid/bid
+student/register  name/uid/class/password
+student/student-dashboard 
+
+shared/all-books 
+shared/about
+
+librarian/add-book  bname/bid/author/desc/subject
+librarian/return-book bid/uid/
+librarian/issue-book bid/uid
+librarian/librarian-dashboard
+
+
+librarian username: librarian
+password: libma1234
