@@ -7,8 +7,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./student-dashboard.page.scss'],
 })
 export class StudentDashboardPage implements OnInit {
-
-  constructor(private  router: Router) { }
+  user: any;
+  constructor(private  router: Router) {
+    this.user = {Name: 'antony', Avatar: 'www.google.com'};
+  }
 
   ngOnInit() {
   }
@@ -25,8 +27,12 @@ export class StudentDashboardPage implements OnInit {
     this.router.navigateByUrl('all-books');
   }
 
-  About(){
+  About() {
     this.router.navigateByUrl('about');
+  }
+
+  Logout() {
+    this.router.navigateByUrl('home');
   }
 
 }

@@ -14,6 +14,9 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxQRCodeModule } from 'ngx-qrcode2';
+import QRCode from 'qrcode';
+import { QrCodeAllModule } from 'ngx-qrcode-all';
 
 @NgModule({
   declarations: [AppComponent, StopParentDirective],
@@ -27,7 +30,10 @@ import { HttpClientModule } from '@angular/common/http';
     AngularFirestoreModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxQRCodeModule,
+    QRCode,
+    QrCodeAllModule
   ],
   providers: [
     StatusBar,
