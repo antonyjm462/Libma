@@ -1,9 +1,186 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>issue-book</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" (click)="dashboard()">
+                <div class="sidebar-brand-icon">
+                    <img style="height: 80px;
+                    width: 80px;padding: 10px;" src="../assets/img/icon.svg">
+                </div>
+            </a>
+
+            <!-- Divider -->
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Personal
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a (click)="dashboard()" class="nav-link collapsed">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a (click)="AddBook()" class="nav-link collapsed">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Add Book</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" (click)="Issue()">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span><b>Issue Book</b></span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" (click)="Return()">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Return Book</span>
+                </a>
+            </li>
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" (click)="AllBooks()">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>All-books</span>
+                </a>
+            </li>
+
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+
+                    <!-- Topbar Search -->
+                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                <i class="fas fa-search fa-sm"></i>
+              </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                      <i class="fas fa-search fa-sm"></i>
+                    </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{user?.Name}}</span>
+                               <img class="img-profile rounded-circle" src="../assets/img/teacher.svg">
+
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#" (click)='Logout()'>
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <div class="container-fluid">
+                    <div class="row">
+                        <form class="user" [formGroup]="BookForm" (ngSubmit)="IssueBook(BookForm.value)">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Name" formControlName="Name">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Uid" formControlName="Uid">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Book Id" [(ngModel)]="Bid" [ngModelOptions]="{standalone: true}">
+                            </div><br><br>
+                            <button ion-button full icon-left (click)="scanCode()" class="btn btn-primary btn-user btn-block" type="submit">     Scan Code
+                            </button>
+                            <hr>
+                            <br>
+                            <ion-card *ngFor="let item of issuebooks">
+                                <ion-card-content>
+                                    Name: {{item.Name}}<br> Author: {{item.Author}}
+                                </ion-card-content>
+                            </ion-card>
+                            <button class="btn btn-primary btn-user btn-block" type="submit" (click)='presentToast()'> Issue Books
+                                      </button>
+
+                            <br>
+                            <ion-card *ngIf="scannedCode">
+                                <ion-card-content>
+                                    Scanned: {{ scannedCode }}
+                                </ion-card-content>
+                            </ion-card>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Footer -->
+                <footer class=" sticky-footer bg-white ">
+                    <div class="container my-auto ">
+                        <div class="copyright text-center my-auto ">
+                            <span>Libma &copy; 2019</span>
+                        </div>
+                    </div>
+                </footer>
+                <!-- End of Footer -->
+
+            </div>
+            <!-- End of Content Wrapper -->
+
+        </div>
+        <!-- End of Page Wrapper -->
+    </div>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded " href="#page-top ">
+        <i class="fas fa-angle-up "></i>
+    </a>
 
 </ion-content>

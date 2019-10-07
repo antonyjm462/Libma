@@ -15,8 +15,9 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
-import QRCode from 'qrcode';
-import { QrCodeAllModule } from 'ngx-qrcode-all';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [AppComponent, StopParentDirective],
@@ -32,13 +33,13 @@ import { QrCodeAllModule } from 'ngx-qrcode-all';
     AngularFireAuthModule,
     HttpClientModule,
     NgxQRCodeModule,
-    QRCode,
-    QrCodeAllModule
+    BrowserAnimationsModule,
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    BarcodeScanner,
   ],
   bootstrap: [AppComponent]
 })

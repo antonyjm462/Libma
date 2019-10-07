@@ -1,5 +1,8 @@
-<div class="container">
-
+<div class="container-fluid">
+    <!-- <div class="row justify-content-center"> 
+<img style="height: 200px;
+    width: 200px;" src="../assets/icon/favicon.png">
+</div> -->
     <div class="card o-hidden border-0 shadow-lg my-5">
         <div class="card-body p-0">
             <!-- Nested Row within Card Body -->
@@ -7,22 +10,17 @@
                 <div class="col">
                     <div class="p-5">
                         <div class="text-center">
-                            <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                            <h1 class="h3 text-gray-900 mb-4">Create an Account!</h1>
                         </div>
                         <form class="user" [formGroup]="UserForm" (ngSubmit)="CreateUser(UserForm.value)">
-                            <div class="form-group row">
-                                <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input type="text" class="form-control form-control-user" placeholder="First Name" formControlName="FirstName">
-                                </div>
-                                <div class="col-sm-6">
-                                    <input type="text" class="form-control form-control-user" placeholder="Last Name" formControlName="LastName">
-                                </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control form-control-user" placeholder="Name" formControlName="Name">
                             </div>
                             <div class="form-group">
                                 <input type="email" class="form-control form-control-user" placeholder="Email Address" formControlName="Email">
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control form-control-user" placeholder="Designation" formControlName="Designation">
+                                <input type="text" class="form-control form-control-user" placeholder="Uid" formControlName="Uid">
                             </div>
                             <div class="form-group">
                                 <!-- <div class="col-sm-6 mb-3 mb-sm-0"> -->
@@ -35,6 +33,11 @@
                             <button (click)="login()" class="btn btn-primary btn-user btn-block" type="submit">
                           Register Account
                                     </button>
+                            <div *ngIf='flag==1'>
+                                <div class="alert alert-danger" role="alert">
+                                    Uid Exists
+                                </div>
+                            </div>
                         </form>
                         <hr>
                         <div class="text-center">

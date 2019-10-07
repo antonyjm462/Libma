@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'student-dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
   { path: 'login', loadChildren: './student/login/login.module#LoginPageModule' },
   { path: 'my-books', loadChildren: './student/my-books/my-books.module#MyBooksPageModule' },
@@ -14,6 +14,7 @@ const routes: Routes = [
   { path: 'return-book', loadChildren: './librarian/return-book/return-book.module#ReturnBookPageModule' },
   { path: 'issue-book', loadChildren: './librarian/issue-book/issue-book.module#IssueBookPageModule' },
   { path: 'librarian-dashboard', loadChildren: './librarian/librarian-dashboard/librarian-dashboard.module#LibrarianDashboardPageModule' },
+  { path: 'book-list', loadChildren: './librarian/book-list/book-list.module#BookListPageModule' },
 ];
 
 @NgModule({

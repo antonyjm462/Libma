@@ -3,5 +3,5 @@ export class Book {
     Name: any;
     Author: any;
     Desc: any;
-    Subject: any;
+    Sub: any;
 }

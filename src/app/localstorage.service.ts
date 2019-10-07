@@ -3,7 +3,9 @@ import { LOCAL_STORAGE, StorageService } from 'ngx-webstorage-service';
 import { User } from './model/user';
 // key that is used to access the data in local storage
 
-const STORAGE_KEY = 'userdata';
+const STORAGE_KEY_user = 'userdata';
+const STORAGE_KEY_users = 'usersdata';
+const STORAGE_KEY_books = 'booksdata';
 
 @Injectable({
   providedIn: 'root'
@@ -15,9 +17,18 @@ export class LocalstorageService {
   constructor(@Inject(LOCAL_STORAGE) private storage: StorageService) { }
 
   public storeUser(user) {
-   this.storage.set(STORAGE_KEY, user);
-   console.log('local storage');
-   console.log(this.storage.get(STORAGE_KEY) || 'LocaL storage is empty');
+   this.storage.set(STORAGE_KEY_user, user);
+   console.log(this.storage.get(STORAGE_KEY_user) || 'LocaL storage is empty');
  }
+
+ public storeUsers(users) {
+  this.storage.set(STORAGE_KEY_users, users);
+  console.log(this.storage.get(STORAGE_KEY_users) || 'LocaL storage is empty');
+}
+
+public storeBooks(books) {
+  this.storage.set(STORAGE_KEY_books, books);
+  console.log(this.storage.get(STORAGE_KEY_books) || 'LocaL storage is empty');
+}
 
 }

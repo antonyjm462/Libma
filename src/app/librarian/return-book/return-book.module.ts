@@ -6,6 +6,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { ReturnBookPage } from './return-book.page';
+import { NgxQRCodeModule } from 'ngx-qrcode2';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -16,6 +18,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
+    ReactiveFormsModule,
     CommonModule,
     FormsModule,
     IonicModule,
