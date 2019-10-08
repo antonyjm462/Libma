@@ -1,9 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { AuthService } from './../../auth.service';
 import { FirebaseService } from './../../firebase.service';
 import { LocalstorageService } from './../../localstorage.service';
+import { LOCAL_STORAGE, StorageService } from 'ngx-webstorage-service';
+
+
+
+const STORAGE_KEY_user = 'userdata';
 
 @Component({
   selector: 'app-login',
@@ -17,12 +22,22 @@ export class LoginPage implements OnInit {
   userList: any;
   currentuser: {};
   bookList: any;
+  user: any;
 
 
   // tslint:disable-next-line: max-line-length
-  constructor(private  router: Router, private localstorage: LocalstorageService,private firebaseService: FirebaseService , private formBuilder: FormBuilder, private auth : AuthService) {
+  constructor(private  router: Router, @Inject(LOCAL_STORAGE) private storage: StorageService, private localstorage: LocalstorageService,private firebaseService: FirebaseService , private formBuilder: FormBuilder, private auth : AuthService) {
     this.getuserList();
     this.getbookList();
+    this.user = this.storage.get(STORAGE_KEY_user);
+    // tslint:disable-next-line: triple-equals
+    if (this.user != undefined) {
+      if (this.email === 'librarian') {
+        this.router.navigateByUrl('librarian-dashboard');
+      } else {
+        this.router.navigateByUrl('student-dashboard');
+      }
+    }
   }
 
   ngOnInit() {
