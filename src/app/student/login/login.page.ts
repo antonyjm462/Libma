@@ -32,7 +32,7 @@ export class LoginPage implements OnInit {
     this.user = this.storage.get(STORAGE_KEY_user);
     // tslint:disable-next-line: triple-equals
     if (this.user != undefined) {
-      if (this.user.Name === 'librarian') {
+      if (this.user.Name === '') {
         this.router.navigateByUrl('librarian-dashboard');
       } else {
         this.router.navigateByUrl('student-dashboard');
@@ -66,8 +66,8 @@ export class LoginPage implements OnInit {
     console.log(this.UserForm.value);
     console.log(this.email);
     console.log(this.password);
-    if (this.email === 'librarian') {
-      if (this.password === 'libma1234') {
+    if (this.email === '') {
+      if (this.password === '') {
         this.currentuser = { Name: 'Librarian' };
         this.localstorage.storeUser(this.currentuser);
         // this.router.navigate(['librarian-dashboard']);
