@@ -32,7 +32,7 @@ export class LoginPage implements OnInit {
     this.user = this.storage.get(STORAGE_KEY_user);
     // tslint:disable-next-line: triple-equals
     if (this.user != undefined) {
-      if (this.email === 'librarian') {
+      if (this.user.Name === 'librarian') {
         this.router.navigateByUrl('librarian-dashboard');
       } else {
         this.router.navigateByUrl('student-dashboard');

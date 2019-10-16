@@ -77,12 +77,17 @@ DeleteBook(item){
   let i=0;
   for ( i = 0; i < this.bookList.length; i++) {
       if (this.bookList[i].data.Bid == item) {
-        this.firebaseService.deleteBook(this.bookList[i].id);
-        this.bookList.splice(i, 1);
-        this.localstorage.storeBooks(this.bookList);
+          this.firebaseService.deleteBook(this.bookList[i].id);
+          this.bookList.splice(i, 1);
+          this.localstorage.storeBooks(this.bookList);
+        }
+  }
+    for( i=0; i < this.booksPresent.length;i++){
+      if (this.booksPresent[i].Bid == item) {
+        this.booksPresent.splice(i, 1);
       }
-    }
-    this.getbooks();
+  }
+  console.log(this.booksPresent);
   }
 
 UpdateBook(item){

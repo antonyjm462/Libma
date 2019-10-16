@@ -45,6 +45,7 @@ export class AddBookPage implements OnInit {
   CreateBook(form) {
     console.log(form);
     this.firebaseService.createBook(form);
+    this.BookForm.reset();
   }
 
   dashboard() {

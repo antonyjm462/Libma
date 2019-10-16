@@ -65,12 +65,12 @@ export class RegisterPage implements OnInit {
     let i = 0;
     for (i = 0; i < this.userList.length; i++) {
       // tslint:disable-next-line: triple-equals
-      if (this.userList[i].data.Uid == this.NewUser.Uid) {
+      if ((this.userList[i].data.Uid == this.NewUser.Uid)||(this.NewUser.Email == '')) {
         this.flag = 1;
        }
     }
     // tslint:disable-next-line: triple-equals
-    if(this.flag!=1) {
+    if(this.flag != 1) {
       this.firebaseService.createUser(this.NewUser);
     }
   }

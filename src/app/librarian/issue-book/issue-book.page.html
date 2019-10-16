@@ -114,12 +114,12 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{user?.Name}}</span>
-                               <img class="img-profile rounded-circle" src="../assets/img/teacher.svg">
+                                <img class="img-profile rounded-circle" src="../assets/img/teacher.svg">
 
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#" (click)='Logout()'>
+                                <a class="dropdown-item" (click)='Logout()'>
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Logout
                                 </a>
                             </div>
@@ -140,17 +140,19 @@
                             <div class="form-group">
                                 <input type="text" class="form-control" placeholder="Book Id" [(ngModel)]="Bid" [ngModelOptions]="{standalone: true}">
                             </div><br><br>
+                            <button ion-button full icon-left (click)="getBook()" class="btn btn-primary btn-user btn-block" type="submit">     Get Book
+                            </button><br><br>
                             <button ion-button full icon-left (click)="scanCode()" class="btn btn-primary btn-user btn-block" type="submit">     Scan Code
                             </button>
                             <hr>
                             <br>
                             <ion-card *ngFor="let item of issuebooks">
                                 <ion-card-content>
-                                    Name: {{item.Name}}<br> Author: {{item.Author}}
+                                    <p class="books"> Name: {{item.Name}}<br> Author: {{item.Author}} </p>
                                 </ion-card-content>
                             </ion-card>
-                            <button class="btn btn-primary btn-user btn-block" type="submit" (click)='presentToast()'> Issue Books
-                                      </button>
+                            <button class="btn btn-primary btn-user btn-block" type="submit"> Issue Books
+                            </button>
 
                             <br>
                             <ion-card *ngIf="scannedCode">

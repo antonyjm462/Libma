@@ -54,7 +54,15 @@ export class IssueBookPage implements OnInit {
     }
     console.log(this.issuebooks);
   }
-
+  getBook(){
+    let i=0;
+    for ( i = 0; i < this.bookList.length; i++) {
+      if (this.Bid === this.bookList[i].data.Bid) {
+        this.issuebooks.push(this.bookList[i].data);
+      }
+    }
+    console.log(this.issuebooks);
+  }
   IssueBook(form) {
     let i  = 0;
     for ( i = 0; i < this.users.length; i++) {
