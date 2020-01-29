@@ -30,6 +30,8 @@ plugins/android.json
 plugins/ios.json
 $RECYCLE.BIN/
 
+cred.txt
+general text.txt
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate

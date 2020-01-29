@@ -20,7 +20,6 @@ export class AuthGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     const user = this.storage.get(STORAGE_KEY);
-    console.log(user);
     if (user) {
       // authorised so return true
       return true;

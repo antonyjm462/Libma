@@ -32,7 +32,6 @@ constructor(private router: Router, private localstorage: LocalstorageService, p
   this.user = this.storage.get(STORAGE_KEY_user);
   this.users = this.storage.get(STORAGE_KEY_users);
   this.bookList = this.storage.get(STORAGE_KEY_books);
-  console.log(this.user);
   this.getbooks();
  }
 
@@ -47,7 +46,6 @@ getbooks() {
       this.books =  this.books.concat(this.userbook);
     }
   }
-  console.log(this.books);
   let j  = 0;
   if(this.books.length == 0){
     this.books.push({Bid: "None"});
@@ -68,7 +66,6 @@ dashboard() {
 }
 Search(text) {
   this.searchText = text;
-  console.log(this.searchText);
 }
 MyBook() {
   this.router.navigateByUrl('my-book');
@@ -87,7 +84,6 @@ DeleteBook(item){
         this.booksPresent.splice(i, 1);
       }
   }
-  console.log(this.booksPresent);
   }
 
 UpdateBook(item){

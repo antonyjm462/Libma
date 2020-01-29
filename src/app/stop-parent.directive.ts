@@ -7,7 +7,7 @@ import { Directive, HostListener } from '@angular/core';
 export class StopParentDirective {
 
   constructor() { }
-
+  // to stop the click to be propogated
   @HostListener('click', ['$event'])
   @HostListener('mousedown', ['$event'])
   public onClick(event: any) :void{

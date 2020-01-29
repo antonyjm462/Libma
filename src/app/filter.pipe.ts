@@ -3,6 +3,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'filter'
 })
 
+//show items based on searchs
 export class FilterPipe implements PipeTransform {
   transform(itemList: any, searchKeyword: string) {
     if (!itemList)
@@ -13,17 +14,11 @@ export class FilterPipe implements PipeTransform {
     if (itemList.length > 0) {
       searchKeyword = searchKeyword.toLowerCase();
       itemList.forEach(item => {
-            // if (Object.values(item.Sub)[0].toString().toLowerCase().indexOf(searchKeyword) > -1) {
-            //   filteredList.push(item);
-            // }
-            console.log(item);
-            console.log(searchKeyword);
             if ((item.Name).toString().toLowerCase().indexOf(searchKeyword) > -1) {
               filteredList.push(item);
             }
       });
     }
-    console.log(filteredList);
     return filteredList;
   }
 }

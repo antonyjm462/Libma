@@ -14,7 +14,7 @@ export class DataService {
   constructor(private firebaseService: FirebaseService,  @Inject(LOCAL_STORAGE) private storage: StorageService, private localstorage: LocalstorageService) { 
   }
 
-  
+  // Service to store data of the user and books
   getuserList = () =>
     this.firebaseService
       .getItem('users')
@@ -29,8 +29,6 @@ export class DataService {
   Data() {
     this.firebaseService.getItem('users').subscribe((res: any) => (this.userList = res));
     this.firebaseService.getItem('book').subscribe((res: any) => (this.bookList = res));
-    console.log(this.userList);
-    console.log(this.bookList);
     this.localstorage.storeUsers(this.userList);
     this.localstorage.storeBooks(this.bookList);
   }

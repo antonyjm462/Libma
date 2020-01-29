@@ -33,7 +33,6 @@ export class IssueBookPage implements OnInit {
     this.user = this.storage.get(STORAGE_KEY_user);
     this.users = this.storage.get(STORAGE_KEY_users);
     this.bookList = this.storage.get(STORAGE_KEY_books);
-    console.log(this.user);
    }
 
   ngOnInit() {
@@ -52,7 +51,6 @@ export class IssueBookPage implements OnInit {
         this.issuebooks.push(this.bookList[i].data);
       }
     }
-    console.log(this.issuebooks);
   }
   getBook(){
     let i=0;
@@ -61,7 +59,6 @@ export class IssueBookPage implements OnInit {
         this.issuebooks.push(this.bookList[i].data);
       }
     }
-    console.log(this.issuebooks);
   }
   IssueBook(form) {
     let i  = 0;
@@ -71,7 +68,6 @@ export class IssueBookPage implements OnInit {
         this.currentuser.Book = JSON.stringify(this.issuebooks);
         this.firebaseService.updateUser(this.users[i].id, this.currentuser);
         this.users[i].data = this.currentuser;
-        console.log(this.users);
       }
       this.localstorage.storeUsers(this.users);
     }

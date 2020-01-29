@@ -28,7 +28,6 @@ export class AboutPage implements OnInit {
     this.user = this.storage.get(STORAGE_KEY_user);
     this.users = this.storage.get(STORAGE_KEY_users);
     this.bookList = this.storage.get(STORAGE_KEY_books);
-    console.log(this.user);
    }
 
   ngOnInit() {

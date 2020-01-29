@@ -63,9 +63,6 @@ export class LoginPage implements OnInit {
     let i = 0;
     this.email = this.UserForm.get('Email').value;
     this.password = this.UserForm.get('Password').value;
-    console.log(this.UserForm.value);
-    console.log(this.email);
-    console.log(this.password);
     if (this.email === '') {
       if (this.password === '') {
         this.currentuser = { Name: 'Librarian' };

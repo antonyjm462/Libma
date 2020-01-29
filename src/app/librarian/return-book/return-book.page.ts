@@ -30,7 +30,6 @@ export class ReturnBookPage implements OnInit {
     this.user = this.storage.get(STORAGE_KEY_user);
     this.users = this.storage.get(STORAGE_KEY_users);
     this.bookList = this.storage.get(STORAGE_KEY_books);
-    console.log(this.user);
    }
 
   ngOnInit() {
@@ -59,7 +58,6 @@ export class ReturnBookPage implements OnInit {
         this.currentuser.Book = JSON.stringify(this.books);
         this.firebaseService.updateUser(this.users[i].id, this.currentuser);
         this.users[i].data = this.currentuser;
-        console.log(this.users);
       }
       this.localstorage.storeUsers(this.users);
     }
@@ -68,7 +66,6 @@ export class ReturnBookPage implements OnInit {
   addreturn(item) {
     const index = this.books.indexOf(item);
     this.books.splice(index, 1);
-    console.log(this.books);
   }
 
   dashboard() {

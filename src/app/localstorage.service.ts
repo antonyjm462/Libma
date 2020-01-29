@@ -18,17 +18,17 @@ export class LocalstorageService {
 
   public storeUser(user) {
    this.storage.set(STORAGE_KEY_user, user);
-   console.log(this.storage.get(STORAGE_KEY_user) || 'LocaL storage is empty');
+   //console.log(this.storage.get(STORAGE_KEY_user) || 'Local storage is empty');
  }
 
  public storeUsers(users) {
   this.storage.set(STORAGE_KEY_users, users);
-  console.log(this.storage.get(STORAGE_KEY_users) || 'LocaL storage is empty');
+  //console.log(this.storage.get(STORAGE_KEY_users) || 'Local storage is empty');
 }
 
 public storeBooks(books) {
   this.storage.set(STORAGE_KEY_books, books);
-  console.log(this.storage.get(STORAGE_KEY_books) || 'LocaL storage is empty');
+  //console.log(this.storage.get(STORAGE_KEY_books) || 'Local storage is empty');
 }
 
 }

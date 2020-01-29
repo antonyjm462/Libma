@@ -57,7 +57,6 @@ export class RegisterPage implements OnInit {
     this.router.navigateByUrl('login');
   }
   CreateUser(form) {
-    console.log(form);
     this.NewUser = form;
     this.NewUser.Book = '[]';
     this.localstorage.storeUsers(this.userList);

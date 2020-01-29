@@ -30,7 +30,6 @@ export class MyBooksPage implements OnInit {
     this.user = this.storage.get(STORAGE_KEY_user);
     this.users = this.storage.get(STORAGE_KEY_users);
     this.bookList = this.storage.get(STORAGE_KEY_books);
-    console.log(this.user);
     this.getbooks();
    }
 
@@ -46,7 +45,6 @@ export class MyBooksPage implements OnInit {
   }
   Search(text) {
     this.searchText = text;
-    console.log(this.searchText);
   }
   MyBook() {
     this.router.navigateByUrl('my-book');

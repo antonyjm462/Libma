@@ -14,13 +14,8 @@ export class FirebaseService {
   constructor(private firestore: AngularFirestore, public db: AngularFireDatabase) {
     AngularFireModule.initializeApp(environment.firebase);
    }
-
-  documentToDomainObject = _ => {
-    const object = _.payload.doc.data();
-    object.id = _.payload.doc.id;
-    return object;
-}
-
+   
+//get documents from firebase of item collection
   getItem(item: string) {
     return this.firestore.collection(item).snapshotChanges().pipe(map( docArray => {
       return docArray.map( doc => {
@@ -43,13 +38,6 @@ export class FirebaseService {
     return this.firestore.collection('book').add((JSON.parse(JSON.stringify(book))));
   }
 
-  // issueBook(book: Book) {
-  //   return this.firestore.collection('').add((JSON.parse(JSON.stringify(task))));
-  // }
-  // createAssign(Assign: UserAssigned){
-  //   return this.firestore.collection('taskassigned').add((JSON.parse(JSON.stringify(Assign))));
-  // }
-
   updateUser(uid, value){
     return this.firestore.collection('users').doc(uid).update(value);
   }
@@ -58,21 +46,12 @@ export class FirebaseService {
     return this.firestore.collection('book').doc(bid).update(value);
   }
 
-  // updatetask(tid, value){
-  //   return this.firestore.collection('task').doc(tid).update(value);
-  // }
 // Deletes a single User
   deleteUser(username: string) {
     return this.firestore.collection('users').doc(username).delete();
   }
-
+// Deletes a book
   deleteBook(bid: string) {
       return this.firestore.collection('book').doc(bid).delete();
-    }
-  // deleteList(lid: string){
-  //   return this.firestore.collection('list').doc(lid).delete();
-  // }
-  // deleteTask(tid: string){
-  //   return this.firestore.collection('task').doc(tid).delete();
-  // }
+  }
 }
