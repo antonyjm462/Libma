@@ -1,9 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
-import { AuthService } from './../../auth.service';
-import { FirebaseService } from './../../firebase.service';
-import { LocalstorageService } from './../../localstorage.service';
+import { AuthService } from '../../auth/auth.service';
+import { FirebaseService } from '../../shared/services/firebase.service';
+import { LocalstorageService } from '../../shared/services/localstorage.service';
 import { LOCAL_STORAGE, StorageService } from 'ngx-webstorage-service';
 
 

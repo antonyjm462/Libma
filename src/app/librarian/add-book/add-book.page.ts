@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
-import { FirebaseService } from './../../firebase.service';
+import { FirebaseService } from '../../shared/services/firebase.service';
 import { LOCAL_STORAGE, StorageService } from 'ngx-webstorage-service';
 
 

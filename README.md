@@ -42,6 +42,17 @@ For the Web Version:
 [Libma]() is hosted in Firebase for accessing it from the Browser.
 In Browser There will not be support for the QR Code scanner rest all the functions will work Fine.
 
+## Librarian
+The Librarian has diffrent Rights from that os the Student
+
+### Add-Book
+Librarian can Add books by entering the data to the App like Name,Author,Description,Sub,Book-id a unique QR code will be generated from the book Id Which Can be then used for Issuing and Return of the Book.
+
+### 
+
+
+## Student
+
 ## Download
 
 You can [download]() the latest installable version of Libma for Android, IOS.

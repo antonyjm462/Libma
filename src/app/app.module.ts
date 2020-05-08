@@ -8,7 +8,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { StopParentDirective } from './stop-parent.directive';
+import { StopParentDirective } from './shared/directives/stop-parent.directive';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/database';

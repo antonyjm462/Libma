@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { LOCAL_STORAGE, StorageService } from 'ngx-webstorage-service';
-import { LocalstorageService } from 'src/app/localstorage.service';
+import { LocalstorageService } from 'src/app/shared/services/localstorage.service';
 
 
 const STORAGE_KEY_user = 'userdata';

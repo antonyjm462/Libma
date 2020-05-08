@@ -4,8 +4,8 @@ import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabase } from '@angular/fire/database';
-import { User } from './model/user';
-import { Book } from './model/book';
+import { User } from '../../model/user';
+import { Book } from '../../model/book';
 
 @Injectable({
   providedIn: 'root'

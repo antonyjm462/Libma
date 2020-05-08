@@ -1,11 +1,11 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
-import { FirebaseService } from './../../firebase.service';
+import { FirebaseService } from '../../shared/services/firebase.service';
 import { LOCAL_STORAGE, StorageService } from 'ngx-webstorage-service';
 import { User } from 'src/app/model/user';
-import { LocalstorageService } from 'src/app/localstorage.service';
-import { Book } from './../../model/book';
+import { LocalstorageService } from 'src/app/shared/services/localstorage.service';
+import { Book } from '../../model/book';
 
 const STORAGE_KEY_user = 'userdata';
 const STORAGE_KEY_users = 'usersdata';
