@@ -41,6 +41,11 @@ Both Android and IOs is Supported.
 For the Web Version:
 [Libma]() is hosted in Firebase for accessing it from the Browser.
 In Browser There will not be support for the QR Code scanner rest all the functions will work Fine.
+<br> <img src="./img/1.png" alt="DEMO"> <br>
+<br> <img src="./img/2.png" alt="DEMO"> <br>
+<br> <img src="./img/3.png" alt="DEMO"> <br>
+<br> <img src="./img/4.png" alt="DEMO"> <br>
+
 
 ## Librarian
 The Librarian has diffrent Rights from that os the Student
